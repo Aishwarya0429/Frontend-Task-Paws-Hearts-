@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws & Hearts Shelter - Find Your Perfect Companion</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-brown': '#6B4F3F',
+                        'warm-tan': '#A47551',
+                        'warm-beige': '#D4A373',
+                        'warm-offwhite': '#FBF8F4',
+                        'warm-light': '#EFE6D8',
+                        'warm-gray': '#5A4A42',
+                        'warm-dark': '#3A2F2A',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .carousel-slide { 
+            transition: opacity 1s ease-in-out; 
+        }
+        .dot.active { 
+            @apply bg-warm-brown w-8 rounded-md; 
+        }
+        .pets-track, .stories-track {
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-warm-offwhite text-warm-gray font-sans antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-warm-offwhite text-warm-brown shadow-2xl z-50">
+        <div class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+            <div class="text-3xl font-bold flex items-center gap-3">
+                <span class="text-5xl">🐾</span> Paws & Hearts
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:block">
+                <ul class="flex gap-12">
+                    <li><a href="#home" class="flex items-center gap-2 text-warm-brown hover:text-warm-tan font-medium transition">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+                        Home
+                    </a></li>
+                    <li><a href="#adopt" class="flex items-center gap-2 text-warm-brown hover:text-warm-tan font-medium transition">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"/></svg>
+                        Adopt
+                    </a></li>
+                    <li><a href="#about" class="flex items-center gap-2 text-warm-brown hover:text-warm-tan font-medium transition">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/></svg>
+                        About
+                    </a></li>
+                    <li><a href="#contact" class="flex items-center gap-2 text-warm-brown hover:text-warm-tan font-medium transition">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M21 8V7l-3 2-2-1-4 2-4-2-2 1-3-2v1l7 4 7-4zm0 2-7 4-7-4v7h14z"/></svg>
+                        Contact
+                    </a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Hamburger -->
+            <div class="md:hidden flex flex-col gap-1 cursor-pointer z-50" onclick="toggleSidebar()">
+                <span class="w-7 h-1 bg-warm-brown rounded"></span>
+                <span class="w-7 h-1 bg-warm-brown rounded"></span>
+                <span class="w-7 h-1 bg-warm-brown rounded"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed left-0 top-20 w-64 h-[calc(100vh-5rem)] bg-warm-offwhite shadow-2xl z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300 pt-8 px-6 overflow-y-auto">
+        <h3 class="text-warm-brown text-xl font-semibold mb-6">Categories</h3>
+        <ul class="space-y-3">
+            <li class="bg-white py-4 px-5 rounded-lg cursor-pointer hover:bg-warm-light hover:text-warm-dark hover:translate-x-2 transition-all">Home</li>
+            <li class="bg-white py-4 px-5 rounded-lg cursor-pointer hover:bg-warm-light hover:text-warm-dark hover:translate-x-2 transition-all">Our Mission</li>
+            <li class="bg-white py-4 px-5 rounded-lg cursor-pointer hover:bg-warm-light hover:text-warm-dark hover:translate-x-2 transition-all">Available Pets</li>
+            <li class="bg-white py-4 px-5 rounded-lg cursor-pointer hover:bg-warm-light hover:text-warm-dark hover:translate-x-2 transition-all">Happy Tails</li>
+            <li class="bg-white py-4 px-5 rounded-lg cursor-pointer hover:bg-warm-light hover:text-warm-dark hover:translate-x-2 transition-all">Volunteers</li>
+            <li class="bg-white py-4 px-5 rounded-lg cursor-pointer hover:bg-warm-light hover:text-warm-dark hover:translate-x-2 transition-all">Special Needs</li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:ml-64 mt-20 px-6 md:px-12 max-w-7xl mx-auto">
+
+        <!-- Hero Carousel -->
+        <section class="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl mb-12">
+            <div class="carousel relative w-full h-full">
+                <div class="carousel-slide absolute inset-0 opacity-100">
+                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600&h=800&fit=crop&q=80" alt="Happy dog" class="w-full h-full object-cover">
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-3">Find Your Perfect Companion</h2>
+                        <p class="text-lg md:text-xl">Every pet deserves a loving home. Start your journey today!</p>
+                    </div>
+                </div>
+                <div class="carousel-slide absolute inset-0 opacity-0">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1600&h=800&fit=crop&q=80" alt="Cute cat" class="w-full h-full object-cover">
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-3">Give Love, Get Love</h2>
+                        <p class="text-lg md:text-xl">Adopt a furry friend and change two lives forever</p>
+                    </div>
+                </div>
+                <div class="carousel-slide absolute inset-0 opacity-0">
+                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600&h=800&fit=crop&q=80" alt="Pet adoption" class="w-full h-full object-cover">
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-3">Rescue. Love. Repeat.</h2>
+                        <p class="text-lg md:text-xl">Join our community of animal lovers making a difference</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+                <span class="dot w-3 h-3 bg-warm-light/80 rounded-full cursor-pointer active" onclick="goToSlide(0)"></span>
+                <span class="dot w-3 h-3 bg-warm-light/80 rounded-full cursor-pointer" onclick="goToSlide(1)"></span>
+                <span class="dot w-3 h-3 bg-warm-light/80 rounded-full cursor-pointer" onclick="goToSlide(2)"></span>
+            </div>
+        </section>
+
+        <!-- Mission Statement -->
+        <section class="bg-gradient-to-br from-warm-brown to-warm-tan text-white py-16 px-10 rounded-3xl mb-12 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Mission</h2>
+            <p class="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+                At Paws & Hearts Shelter, we believe every animal deserves a second chance at happiness. Since 2010, we've been rescuing, rehabilitating, and rehoming animals in need. Our dedicated team works tirelessly to match loving families with their perfect companions, creating bonds that last a lifetime.
+            </p>
+        </section>
+
+        <!-- Featured Pets Slider -->
+        <section class="mb-12">
+            <h2 class="text-4xl font-bold text-warm-brown text-center mb-10">Meet Our Available Pets</h2>
+            <div class="relative">
+                <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-warm-brown text-white w-12 h-12 rounded-full z-10 hover:bg-warm-tan transition" onclick="slidePets(1)">←</button>
+                <div class="overflow-hidden px-12">
+                    <div class="flex gap-8" id="petsTrack">
+                        <div class="flex-none w-full md:w-1/3 bg-warm-offwhite rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&h=400&fit=crop" alt="Max" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-warm-brown mb-2">Max</h3>
+                                <p class="text-warm-gray">🐕 Golden Retriever • 3 years • Male</p>
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Friendly</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Active</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Good with kids</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-none w-full md:w-1/3 bg-warm-offwhite rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&h=400&fit=crop" alt="Luna" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-warm-brown mb-2">Luna</h3>
+                                <p class="text-warm-gray">🐈 Persian Cat • 2 years • Female</p>
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Calm</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Affectionate</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Indoor</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-none w-full md:w-1/3 bg-warm-offwhite rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?w=600&h=400&fit=crop" alt="Buddy" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-warm-brown mb-2">Buddy</h3>
+                                <p class="text-warm-gray">🐕 Labrador Mix • 5 years • Male</p>
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Loyal</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Trained</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Energetic</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-none w-full md:w-1/3 bg-warm-offwhite rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=400&fit=crop" alt="Whiskers" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-warm-brown mb-2">Whiskers</h3>
+                                <p class="text-warm-gray">🐈 Tabby Cat • 1 year • Female</p>
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Playful</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Curious</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Social</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-none w-full md:w-1/3 bg-warm-offwhite rounded-2xl overflow-hidden shadow-2xl hover:-translate-y-4 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?w=600&h=400&fit=crop" alt="Rocky" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-warm-brown mb-2">Rocky</h3>
+                                <p class="text-warm-gray">🐕 Beagle • 4 years • Male</p>
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Gentle</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Loving</span>
+                                    <span class="bg-warm-light text-warm-brown px-4 py-2 rounded-full text-sm">Housetrained</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-warm-brown text-white w-12 h-12 rounded-full z-10 hover:bg-warm-tan transition" onclick="slidePets(-1)">→</button>
+            </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="bg-gray-100 py-12 px-10 rounded-3xl mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="bg-warm-offwhite py-10 rounded-2xl shadow-xl">
+                    <div class="text-5xl font-bold text-warm-brown mb-3">2,450+</div>
+                    <div class="text-xl text-warm-gray">Pets Adopted</div>
+                </div>
+                <div class="bg-warm-offwhite py-10 rounded-2xl shadow-xl">
+                    <div class="text-5xl font-bold text-warm-brown mb-3">150+</div>
+                    <div class="text-xl text-warm-gray">Available Now</div>
+                </div>
+                <div class="bg-warm-offwhite py-10 rounded-2xl shadow-xl">
+                    <div class="text-5xl font-bold text-warm-brown mb-3">98%</div>
+                    <div class="text-xl text-warm-gray">Success Rate</div>
+                </div>
+                <div class="bg-warm-offwhite py-10 rounded-2xl shadow-xl">
+                    <div class="text-5xl font-bold text-warm-brown mb-3">14</div>
+                    <div class="text-xl text-warm-gray">Years of Service</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Buttons -->
+        <section class="flex flex-col md:flex-row gap-8 justify-center mb-12">
+            <a href="#" class="bg-gradient-to-r from-warm-beige to-warm-tan text-white text-xl font-bold py-6 px-12 rounded-full shadow-2xl hover:-translate-y-2 hover:shadow-3xl transition text-center">
+                Adopt a Pet Today
+            </a>
+            <a href="#" class="bg-warm-offwhite text-warm-brown text-xl font-bold py-6 px-12 rounded-full border-4 border-warm-brown hover:bg-warm-brown hover:text-white transition text-center">
+                Make a Donation
+            </a>
+        </section>
+
+        <!-- Success Stories Slider -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-warm-brown text-center mb-10">Happy Tails - Success Stories</h2>
+            <div class="relative">
+                <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-warm-brown text-white w-12 h-12 rounded-full z-10 hover:bg-warm-tan transition" onclick="slideStories(1)">←</button>
+                <div class="overflow-hidden px-12">
+                    <div class="flex gap-8" id="storiesTrack">
+                        <div class="flex-none w-full md:w-1/2 bg-warm-offwhite rounded-2xl p-8 shadow-2xl">
+                            <div class="flex items-center gap-6 mb-6">
+                                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=150&h=150&fit=crop&round" alt="Charlie" class="w-20 h-20 rounded-full object-cover">
+                                <div>
+                                    <h4 class="text-2xl font-bold text-warm-brown">Charlie's Journey</h4>
+                                    <p class="text-sm text-gray-600">Adopted by Sarah M.</p>
+                                </div>
+                            </div>
+                            <p class="text-warm-gray italic leading-relaxed">"We adopted Charlie six months ago, and he's brought so much joy to our family..."</p>
+                        </div>
+                        <div class="flex-none w-full md:w-1/2 bg-warm-offwhite rounded-2xl p-8 shadow-2xl">
+                            <div class="flex items-center gap-6 mb-6">
+                                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=150&h=150&fit=crop&round" alt="Mittens" class="w-20 h-20 rounded-full object-cover">
+                                <div>
+                                    <h4 class="text-2xl font-bold text-warm-brown">Mittens' New Life</h4>
+                                    <p class="text-sm text-gray-600">Adopted by James T.</p>
+                                </div>
+                            </div>
+                            <p class="text-warm-gray italic leading-relaxed">"Mittens was rescued from a difficult situation, but you'd never know it now..."</p>
+                        </div>
+                        <div class="flex-none w-full md:w-1/2 bg-warm-offwhite rounded-2xl p-8 shadow-2xl">
+                            <div class="flex items-center gap-6 mb-6">
+                                <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=150&h=150&fit=crop&round" alt="Bella" class="w-20 h-20 rounded-full object-cover">
+                                <div>
+                                    <h4 class="text-2xl font-bold text-warm-brown">Bella's Forever Home</h4>
+                                    <p class="text-sm text-gray-600">Adopted by The Johnson Family</p>
+                                </div>
+                            </div>
+                            <p class="text-warm-gray italic leading-relaxed">"Bella has been the perfect addition to our family..."</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-warm-brown text-white w-12 h-12 rounded-full z-10 hover:bg-warm-tan transition" onclick="slideStories(-1)">→</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            slides.forEach(s => s.classList.remove('opacity-100'));
+            slides.forEach(s => s.classList.add('opacity-0'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function goToSlide(n) { showSlide(n); }
+
+        setInterval(() => showSlide(currentSlide + 1), 5000);
+
+        // Pets Slider
+        let petsPosition = 0;
+        const petsTrack = document.getElementById('petsTrack');
+        const petCards = document.querySelectorAll('#petsTrack > div');
+
+        function slidePets(direction) {
+            const cardWidth = petCards[0].offsetWidth + 32; // gap-8 = 32px
+            const visibleCards = window.innerWidth >= 768 ? 3 : 1;
+            const maxPosition = -(petCards.length - visibleCards) * cardWidth;
+            
+            petsPosition += direction * cardWidth;
+            if (petsPosition > 0) petsPosition = 0;
+            if (petsPosition < maxPosition) petsPosition = maxPosition;
+            
+            petsTrack.style.transform = `translateX(${petsPosition}px)`;
+        }
+
+        // Stories Slider
+        let storiesPosition = 0;
+        const storiesTrack = document.getElementById('storiesTrack');
+        const storyCards = document.querySelectorAll('#storiesTrack > div');
+
+        function slideStories(direction) {
+            const cardWidth = storyCards[0].offsetWidth + 32;
+            const visibleCards = window.innerWidth >= 768 ? 2 : 1;
+            const maxPosition = -(storyCards.length - visibleCards) * cardWidth;
+            
+            storiesPosition += direction * cardWidth;
+            if (storiesPosition > 0) storiesPosition = 0;
+            if (storiesPosition < maxPosition) storiesPosition = maxPosition;
+            
+            storiesTrack.style.transform = `translateX(${storiesPosition}px)`;
+        }
+
+        // Sidebar Toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        }
+
+        // Close sidebar on outside click (mobile)
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.querySelector('.cursor-pointer');
+            if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !hamburger.contains(e.target) && !sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+
+        // Reset sliders on resize
+        window.addEventListener('resize', () => {
+            petsPosition = 0;
+            storiesPosition = 0;
+            petsTrack.style.transform = 'translateX(0)';
+            storiesTrack.style.transform = 'translateX(0)';
+        });
+    </script>
+</body>
+</html>
