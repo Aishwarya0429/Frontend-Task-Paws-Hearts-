@@ -1,4 +1,4 @@
-# Paws & Hearts - Frontend
+# Paws & Hearts Shelter - Frontend
 
 **Paws & Hearts Shelter** is a responsive frontend web application designed for a pet adoption platform. The interface allows users to browse available pets, learn about the shelter’s mission, and connect with the community of animal lovers.
 
